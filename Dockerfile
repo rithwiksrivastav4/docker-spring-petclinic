@@ -7,7 +7,7 @@ RUN mvn package
 
 
 FROM eclipse-temurin:17-jre AS runner
-COPY --from=builder --chown=ubuntu /spc/target/spring-petclinic-3.3.0-SNAPSHOT.jar /app/spring-petclinic.jar
+COPY --from=builder --chown=ubuntu /spc/target/*.jar /app/spring-petclinic.jar
 USER ubuntu
 WORKDIR /app
 EXPOSE 8080
